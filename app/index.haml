@@ -1,0 +1,99 @@
+---
+layout: default
+title: Home
+body:
+---
+
+{% include header.haml %}
+
+%main
+  %section.section-intro
+    .container
+      .row
+        .col.col-arrows
+          %a.webicon-link{:href => "#fake"}
+            %webicon.webicon-light{:icon => "win10:down-round"}
+          %a.webicon-link{:href => "#fake"}
+            %webicon.webicon-primary{:icon => "win10:right-round"}
+        .col.col-primary
+          .padded
+            %h1 Bright ass orange
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis recusandae aliquam vel error laborum corporis voluptatibus.
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat quasi ut neque veniam, repellat delectus consequuntur alias incidunt omnis illo, impedit similique repellendus eos. Harum qui error labore excepturi aliquam!
+        .col.col-secondary
+          .right-flag
+          .padded
+            %h1 Finally a layout that blows your head off
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ad veritatis soluta dicta voluptates deleniti aspernatur illum.
+            %p.m-t-lg
+              %a{:href => "#"}
+                %webicon.webicon-sm{:icon => "brandico:twitter-bird"}
+                Tweet this shit
+
+  %section.section-text
+    .container
+      .padded
+        %h1 Melbourne, Australia
+        .multi-column-text
+          %p.lead.text-muted Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eius rerum in reiciendis delectus voluptates sit soluta molestiae, consequatur modi quam nemo provident ipsam culpa eos earum veniam nisi eaque?
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut provident in maiores, aliquam dolore. Nobis porro quo, sequi. Distinctio nostrum hic similique magnam accusantium minima voluptatem eius impedit quos, illo sequi fugit nulla magni animi natus sed ducimus vitae ipsam aut aspernatur, provident. Dolores fugiat laudantium, architecto debitis minima quaerat labore voluptatum veritatis ipsa nemo deleniti officiis magni cupiditate atque.
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum perspiciatis itaque rem libero eum sunt, fugiat, adipisci labore iure unde inventore, illum beatae dicta id.
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut provident in maiores, aliquam dolore. Nobis porro quo, sequi. Distinctio nostrum hic similique magnam accusantium minima voluptatem eius impedit quos, illo sequi fugit nulla magni animi natus sed ducimus vitae ipsam aut aspernatur, provident. Dolores fugiat laudantium, architecto debitis minima quaerat labore voluptatum veritatis ipsa nemo deleniti officiis magni cupiditate atque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, unde!
+
+  %section.section-full-image{:style => "background-image: url(https://unsplash.it/1600/800?image=134);"}
+
+  %section.section-full-image-text
+    .container
+      .row
+        .col.col-title
+          .padded
+            %h1.display-2 Words & Such
+        .col.col-image{:style => "background-image: url(https://unsplash.it/800?image=823);"}
+      .row.row-right-flag
+        .col.col-text
+          .padded
+            .multi-column-text
+              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eius rerum in reiciendis delectus voluptates sit soluta molestiae, consequatur modi quam nemo provident ipsam culpa eos earum veniam nisi eaque?
+              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate vitae nemo voluptates similique debitis harum aliquam, sed impedit voluptatem corporis modi adipisci et, velit ipsum, eos. Esse assumenda ratione ipsa aliquam placeat modi in natus, incidunt nam animi eos quae. Cupiditate aperiam laboriosam perspiciatis sapiente mollitia molestias qui, porro sint.
+              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate vitae nemo voluptates similique debitis harum aliquam, sed impedit voluptatem corporis modi adipisci et, velit ipsum, eos. Esse assumenda ratione ipsa aliquam placeat modi in natus, incidunt nam animi eos quae. Cupiditate aperiam laboriosam perspiciatis sapiente mollitia molestias qui, porro sint.
+              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum perspiciatis itaque rem libero eum sunt, fugiat, adipisci labore iure unde inventore, illum beatae dicta id.
+
+  %section.section-action
+    .container
+      .right-flag-color
+        .row
+          .col.col-action
+            .padded
+              %h1 Take action
+              %form.form-inline.p-b-lg
+                .form-group
+                  %input.form-control.form-control-lg{:type => "text", :placeholder => "Name"}/
+                .form-group
+                  %input.form-control.form-control-lg{:type => "text", :placeholder => "Contact Phone"}/
+                .form-group
+                  %input.form-control.form-control-lg{:type => "email", :placeholder => "Email"}/
+                .form-group
+                  %button.btn.btn-lg.btn-secondary-outline{:type => "submit"} Sign Up
+
+  %section.section-right-flag-image
+    .container
+      .row
+
+  %section.section-end
+    .container
+      .row
+        .col.col-primary
+          .padded
+            %h1<
+              Ohh this
+              %br><
+              is nice
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod a soluta modi aliquid. Odio non tempora commodi totam veniam qui animi fugit, earum explicabo ipsam dolor autem voluptatibus, aperiam sit.
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, eveniet, repudiandae. Soluta alias, minus, aliquam porro, necessitatibus, eos vel dolorum tempora optio aspernatur nulla molestiae.
+        .col.col-secondary
+          .image{:style => "background-image: url(https://unsplash.it/g/800/400?image=393);"}
+          .padded
+            %h1.m-t-md The end is nigh, well the footer anyways
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia ea consectetur porro repudiandae corporis, voluptates iste, alias maiores dolores id non harum vel. Illo odit magni exercitationem libero at labore.
+
+{% include footer.haml %}

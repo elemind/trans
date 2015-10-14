@@ -1,0 +1,616 @@
+//
+// Skin
+// --------------------------------------------------
+
+@mixin pseudo-element($top: 0, $left: 0, $width: 100%, $height: 100%) {
+  content: '';
+  position: absolute;
+  top: $top;
+  left: $left;
+  width: $width;
+  height: $height;
+}
+
+html {
+  overflow-x: hidden;
+  font-weight: 400;
+}
+
+.header {
+  position: relative;
+  background: 50% 50% no-repeat;
+  background-size: cover;
+  height: (24rem * 1.5);
+
+  @include media-breakpoint-up(md) {
+    height: (24rem * 3);
+  }
+
+  &::before {
+    @include pseudo-element();
+    background: linear-gradient(to top right, darken(rgba($brand-secondary, 1), 10%) 30%, darken(rgba($brand-secondary, 0), 10%) 70%);
+  }
+
+  @include media-breakpoint-up(md) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .navbar {
+      flex-grow: 1;
+    }
+  }
+
+
+  .jumbotron {
+    position: relative;
+    z-index: 2;
+    background: none;
+    color: $body-bg;
+    padding-left: 0;
+    margin-bottom: 24rem;
+  }
+}
+
+.navbar {
+  font-family: $headings-font-family;
+  font-weight: 300;
+
+  @include media-breakpoint-up(md) {
+    margin-top: ($spacer * 3);
+  }
+
+  .nav-item {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+
+    @include media-breakpoint-up(md) {
+      margin-right: ($spacer * 2);
+    }
+
+    .nav-link {
+      border-bottom: 2px solid transparent;
+    }
+
+    &.active .nav-link {
+      border-color: $brand-primary;
+    }
+  }
+}
+
+.navbar-brand {
+  float: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .75rem;
+  font-size: 1.5rem;
+
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    top: ($spacer *3);
+    right: ($spacer *3);
+    transform: rotateZ(.25turn);
+  }
+
+  span {
+    display: inline-block;
+    @extend .text-primary;
+    transform: rotateY(.5turn);
+    transform-origin: .65rem 0;
+  }
+}
+
+
+
+
+.section-intro {
+  @include media-breakpoint-up(md) {
+    margin-top: -24rem;
+    margin-bottom: ($spacer * 3);
+  }
+
+  .row {
+    @include media-breakpoint-up(md) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .col {
+    @include make-col();
+    padding-left: 0;
+    padding-right: 0;
+
+    @include media-breakpoint-up(md) {
+      padding-bottom: ($spacer * 3);
+    }
+  }
+
+  .col-arrows {
+    @extend .hidden-md-down;
+    @include make-col-span(3);
+
+    @include media-breakpoint-up(xl) {
+      @include make-col-span(4);
+    }
+  }
+
+  .col-primary {
+
+    @include media-breakpoint-up(md) {
+      @include make-col-span(7);
+    }
+
+    @include media-breakpoint-up(xl) {
+      @include make-col-span(6);
+    }
+
+    background-color: $brand-primary;
+    color: $body-bg;
+
+    .padded {
+      @include media-breakpoint-up(md) {
+        padding: ($spacer * 5) ($spacer * 3.5);
+      }
+    }
+  }
+
+  .col-secondary {
+    @include media-breakpoint-up(md) {
+      @include make-col-span(10);
+    }
+
+    color: $text-on-light;
+
+    .padded {
+      @include media-breakpoint-up(md) {
+        padding-left: $spacer;
+        padding-right: $spacer;
+      }
+
+      @include media-breakpoint-up(md) {
+        padding: ($spacer * 6) ($spacer * 4);
+      }
+    }
+
+    h1 {
+      color: $heading-on-light;
+    }
+
+    a {
+      color: $muted-on-light;
+    }
+  }
+
+  .right-flag {
+    @extend .hidden-sm-down;
+    position: relative;
+    width: 100%;
+    height: 24rem;
+
+    &::before {
+      @include pseudo-element($width: 1400px);
+      background: url('https://unsplash.it/g/1600/600?image=151') no-repeat 100% 50%;
+      background-size: cover;
+      background-color: $brand-primary;
+      background-blend-mode: hard-light;
+      filter: contrast(200%) grayscale(100%);
+    }
+
+    &::after {
+      @include pseudo-element($width: 1400px);
+      background: rgba($brand-primary,.85);
+      box-shadow: inset .25rem 0 .5rem -.25rem rgba(0,0,0,.15);
+    }
+  }
+
+}
+
+.section-text {
+  margin-bottom: ($spacer * 6);
+  color: $text-on-light;
+
+  .container {
+    @include media-breakpoint-down(sm) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .padded {
+    @include media-breakpoint-up(md) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .multi-column-text {
+    @include media-breakpoint-up(md) {
+      column-count: 2;
+      column-gap: $grid-gutter-width;
+    }
+  }
+
+  h1 {
+    color: $heading-on-light;
+  }
+
+  .text-muted {
+    color: $muted-on-light;
+  }
+}
+
+.section-full-image {
+  background: 50% 50% no-repeat;
+  background-size: cover;
+  min-height: 24rem;
+
+  @include media-breakpoint-up(md) {
+    min-height: (32rem * 1.8);
+  }
+}
+
+.section-full-image-text {
+  @include media-breakpoint-up(md) {
+    margin-top: -24rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-top: -27rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-top: -32rem;
+  }
+
+  color: $body-bg;
+
+  .row {
+    @include media-breakpoint-up(md) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .col {
+    @include make-col();
+    padding-left: 0;
+    padding-right: 0;
+    background-color: $brand-primary;
+  }
+
+  .col-title {
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      @include make-col-span(10);
+      display: flex;
+      align-items: center;
+    }
+
+    @include media-breakpoint-up(lg) {
+      @include make-col-span(8);
+    }
+  }
+
+  .col-image {
+    @include media-breakpoint-up(md) {
+      @include make-col-span(10);
+      position: relative;
+      height: 24rem;
+
+      &::before {
+        @include pseudo-element();
+        box-shadow: inset .25rem -.25rem .5rem rgba(0,0,0,.25);
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      @include make-col-span(8);
+      height: 27rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      height: 32rem;
+    }
+
+    width: 100%;
+    height: 24rem;
+    background: 50% 50% no-repeat;
+    background-size: cover;
+  }
+
+  .col-text {
+
+    .padded {
+      @include media-breakpoint-up(lg) {
+        padding-top: ($spacer * 6);
+      }
+    }
+
+    .multi-column-text {
+      column-count: 1;
+    }
+
+    @include media-breakpoint-up(lg) {
+      @include make-col-span(20);
+
+      .multi-column-text {
+        column-count: 2;
+        column-gap: ($grid-gutter-width * 4)
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .row-right-flag {
+      position: relative;
+
+      &::before {
+        @include pseudo-element($width: 2400px);
+        background-color: $brand-primary;
+      }
+    }
+  }
+}
+
+.section-action {
+  .row {
+    @include media-breakpoint-up(md) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .col {
+    @include make-col();
+    padding-left: 0;
+    padding-right: 0;
+    color: $body-bg;
+  }
+
+  .col-action {
+    @include make-col-span(20);
+    background-color: $brand-secondary;
+  }
+
+  .padded {
+    @include media-breakpoint-up(lg) {
+      padding-bottom: ($spacer * 6);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .right-flag-color {
+      width: 100%;
+      position: relative;
+      background: $brand-secondary;
+      box-sizing: content-box;
+      padding-right: 100%;
+
+      .col {
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .section-right-flag-image {
+    .row {
+      position: relative;
+      margin-left: 0;
+      margin-right: 0;
+      height: 48rem;
+
+      &::before {
+        @include pseudo-element($width: 1900px);
+        background: url('https://unsplash.it/g/1600/800?image=76') 50% 50% no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+}
+
+.section-end {
+  @include media-breakpoint-up(md) {
+    position: relative;
+    margin-top: -16rem;
+    z-index: 2;
+  }
+
+  .row {
+    @include media-breakpoint-up(md) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .col {
+    @include make-col();
+    padding-left: 0;
+    padding-right: 0;
+
+    @include media-breakpoint-up(md) {
+      padding-bottom: ($spacer * 6);
+    }
+  }
+
+  .col-primary {
+    @include media-breakpoint-up(md) {
+      @include make-col-span(7);
+    }
+
+    background-color: $brand-primary;
+    color: $body-bg;
+
+    .padded {
+      @include media-breakpoint-up(md) {
+        padding: ($spacer * 5) ($spacer * 3.5);
+      }
+    }
+  }
+
+  .col-secondary {
+    @include media-breakpoint-up(md) {
+      @include make-col-span(13);
+    }
+
+    .padded {
+      @include media-breakpoint-up(md) {
+        padding: ($spacer * 6) ($spacer * 4);
+      }
+    }
+
+    .image {
+      position: relative;
+      height: 24rem;
+      background: 50% 50% no-repeat;
+      background-size: cover;
+
+      &::before {
+        @include pseudo-element();
+        background-color: rgba($brand-primary,.75);
+        box-shadow: inset .25rem 0 .5rem -.25rem rgba(0,0,0,.15);
+      }
+    }
+  }
+}
+
+
+
+.footer {
+  background-color: $brand-secondary;
+  color: $body-bg;
+  padding-top: ($spacer * 3);
+  padding-bottom: ($spacer * 3);
+  font-size: $font-size-sm;
+  text-align: center;
+
+  @include media-breakpoint-up(md) {
+    text-align: left;
+    padding-top: ($spacer * 6);
+    padding-bottom: ($spacer * 6);
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: ($spacer * 9);
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding-bottom: ($spacer * 12);
+  }
+
+  .col {
+    @include make-col();
+    @include make-col-span(20);
+
+    @include media-breakpoint-up(sm) {
+      @include make-col-span(10);
+      margin-bottom: ($spacer * 3);
+    }
+
+    @include media-breakpoint-up(md) {
+      @include make-col-span(3);
+    }
+  }
+
+  h5 {
+    color: $brand-primary;
+    font-size: $font-size-sm;
+  }
+
+  a {
+    color: $body-bg;
+  }
+}
+
+
+
+//
+// Global
+// --------------------------------------------------
+
+.padded {
+  max-width: 100%;
+  padding: ($spacer * 3) ($spacer * 1.5);
+
+  @include media-breakpoint-up(md) {
+    padding: ($spacer * 4);
+  }
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+.btn-lg {
+  @extend .p-x-lg;
+}
+
+.form-control-lg,
+.btn-lg {
+  border-radius: 2px;
+  margin-right: 2px;
+  font-size: $font-size-root;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+}
+
+.form-inline {
+  @include media-breakpoint-down(md) {
+
+    .form-group {
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .form-control-lg {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .form-control-lg {
+      width: 20rem;
+    }
+  }
+
+
+  .btn-lg {
+    display: block;
+    width: 100%;
+  }
+}
+
+.webicon {
+  @include square(4rem);
+  vertical-align: middle;
+}
+
+.webicon-sm {
+  @include square(1.5rem);
+}
+
+.webicon-lg {
+  @include square(4rem);
+}
+
+.webicon-light {
+  color: $body-bg;
+}
+
+.webicon-primary {
+  color: $brand-primary;
+}
+
+.webicon-link {
+  text-decoration: none !important;
+}

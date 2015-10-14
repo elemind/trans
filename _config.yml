@@ -1,0 +1,6 @@
+# Site settings
+title: Trans
+email: info@elemind.com
+source: "app"
+destination: ".tmp"
+exclude: ["images"]
